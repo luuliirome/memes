@@ -2,22 +2,33 @@
 <html lang="es">
   <body>
 
+<div>
   	<h1>Random memes:</h1>
+  	<button onclick="showRandomMeme()">More random</button>
+</div>
+
+<img id="image" src="" width="50%" height="50%">
 
 <script>
 
+let i = 0;
 
 function showRandomMeme() {
   const xhr = new XMLHttpRequest();
+  document.getElementById("image").src = "assets/loading.gif";
   xhr.addEventListener('load', () => {
     const res = JSON.parse(xhr.response);
     console.log(res);
-    src = res.meme,
-    img = document.createElement('img');
-	img.src = src;
-    document.body.appendChild(img);
+    src = res.meme;
+  	document.getElementById("image").src = src;
   });
-  xhr.open('GET', 'https://cors-anywhere.herokuapp.com/https://meme-api.glitch.me/furry');
+
+  let memesArray = ["dank", "light", "furry", "moderate", "sbubby"]
+  const randomElement = memesArray[i%5];
+  i += 1;
+
+
+  xhr.open('GET', `https://cors-anywhere.herokuapp.com/https://meme-api.glitch.me/${randomElement}`);
   xhr.send();
 }
 
