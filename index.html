@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="es">
   <body>
+
+  	<h1>Random memes:</h1>
+
 <script>
 
 
@@ -9,8 +12,12 @@ function showRandomMeme() {
   xhr.addEventListener('load', () => {
     const res = JSON.parse(xhr.response);
     console.log(res);
+    src = res.meme,
+    img = document.createElement('img');
+	img.src = src;
+    document.body.appendChild(img);
   });
-  xhr.open('GET', 'https://meme-api.glitch.me/furry');
+  xhr.open('GET', 'https://cors-anywhere.herokuapp.com/https://meme-api.glitch.me/furry');
   xhr.send();
 }
 
