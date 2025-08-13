@@ -1,45 +1,16 @@
 <!doctype html>
 <html lang="es">
   <body>
-
-<p>
-  	<h1>Random memes:</h1>
-  	<button onclick="showRandomMeme()">More random</button>
-</p>
-
-<img id="image" src="" width="30%" height="30%">
-
-<p>
-  	<h1>Mercado Pago Accessibility Page:</h1>
-</p>
-
-<iframe 
-  src="https://www.mercadopago.com.ar/accesibilidad" 
-  width="100%" 
-  height="600px" 
-  style="border: 1px solid #ccc; border-radius: 5px;"
-  title="Mercado Pago Accessibility Page">
-</iframe>
-
-<script>
-
-let i = 0;
-
-function showRandomMeme() {
-  const xhr = new XMLHttpRequest();
-  document.getElementById("image").src = "assets/loading.gif";
-  xhr.addEventListener('load', () => {
-    const res = JSON.parse(xhr.response);
-    src = res.url;
-  	document.getElementById("image").src = src;
-  });
-
-  xhr.open('GET', `https://meme-api.herokuapp.com/gimme`);
-  xhr.send();
-}
-
-showRandomMeme();
-
-</script>
+    <p>
+      	<h1>Mercado Pago Accessibility Page:</h1>
+    </p>
+    
+    <iframe 
+      src="https://www.mercadopago.com.ar/accesibilidad" 
+      width="100%" 
+      height="600px" 
+      style="border: 1px solid #ccc; border-radius: 5px;"
+      title="Mercado Pago Accessibility Page">
+    </iframe>
   </body>
 </html>
